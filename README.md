@@ -20,6 +20,20 @@ Add the plugin to your app:
 createApp(App).use(plugin)
 ```
 
+### For local use
+
+After installation go to your vue component and add the package:
+
+```js
+import plugin from '@victor-dklv/vue3-npm'
+
+export default {
+    components:{
+        plugin
+    }
+}
+```
+
 ### To update
 
 ```sh
