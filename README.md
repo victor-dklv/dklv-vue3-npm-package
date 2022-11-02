@@ -72,7 +72,13 @@ To use the image slider add the dklv-image-slider to your component.
 ### Update code from terminal
 
 ```powershell
-npm run build; git add --all; $date = Get-Date -Format "dd/MM/yyy HH:mm"; git commit -m "Autocommit $date"; git push; npm version patch; npm publish --acces=public
+npm run build; 
+git add --all; 
+$date = Get-Date -Format "dd/MM/yyy HH:mm"; 
+git commit -m "Autocommit $date"; 
+git push; 
+npm version patch; 
+npm publish --acces=public
 ```
 
 ### Next features
