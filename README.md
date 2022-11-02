@@ -57,7 +57,7 @@ Variables:
 
 ### Update code from terminal
 
-```sh
+```powershell
 npm run build; git add --all; $date = Get-Date -Format "dd/MM/yyy HH:mm"; git commit -m "Autocommit $date"; git push; npm version patch; npm publish --acces=public
 ```
 
