@@ -12,10 +12,14 @@ var script = {
     }
   },
   methods:{
-    doSlide(e){
-      if(this.slide){
-        let width = document.getElementById("imageSliderContainer").offsetWidth;
-        this.sliderWidth = (e.offsetX/width*100) + "%";
+    doSlideTouch(e){
+      let width = document.getElementById("imageSliderContainer").offsetWidth;
+      if(e.type !== "mousemove"){
+          this.sliderWidth = (e.touches[0].clientX/width*100) + "%";
+      }else {
+        if(this.slide){
+          this.sliderWidth = (e.offsetX/width*100) + "%";
+        }
       }
     },
     startSlide(){
@@ -55,8 +59,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     class: "slider",
     id: "imageSliderContainer",
     onMousedown: _cache[0] || (_cache[0] = (...args) => ($options.startSlide && $options.startSlide(...args))),
-    onMousemove: _cache[1] || (_cache[1] = (...args) => ($options.doSlide && $options.doSlide(...args))),
-    onMouseup: _cache[2] || (_cache[2] = (...args) => ($options.stopSlide && $options.stopSlide(...args)))
+    onMousemove: _cache[1] || (_cache[1] = (...args) => ($options.doSlideTouch && $options.doSlideTouch(...args))),
+    onMouseup: _cache[2] || (_cache[2] = (...args) => ($options.stopSlide && $options.stopSlide(...args))),
+    onTouchmove: _cache[3] || (_cache[3] = (...args) => ($options.doSlideTouch && $options.doSlideTouch(...args)))
   }, [
     vue.createElementVNode("img", {
       src: $options.beforeImage,

@@ -1,5 +1,5 @@
 <template>
-    <div class="slider" id="imageSliderContainer" @mousedown="doSlideTouch"  @touchmove="doSlideTouch">
+    <div class="slider" id="imageSliderContainer" @mousedown="startSlide" @mousemove="doSlideTouch" @mouseup="stopSlide"  @touchmove="doSlideTouch">
       <img :src="beforeImage" class="sliderImage" draggable="false">
       <img style="clip-path: url(#myClip)" :src="afterImage" class="sliderImage" draggable="false">
       <svg width="100%" height="100%">
@@ -21,20 +21,14 @@ export default {
     }
   },
   methods:{
-    doSlide(e){
-      if(this.slide){
-        let width = document.getElementById("imageSliderContainer").offsetWidth;
-        this.sliderWidth = (e.offsetX/width*100) + "%"
-      }
-    },
     doSlideTouch(e){
-      console.log(e)
       let width = document.getElementById("imageSliderContainer").offsetWidth;
-      if(e.type !== "mousedown"){
-        this.sliderWidth = (e.touches[0].clientX/width*100) + "%"
+      if(e.type !== "mousemove"){
+          this.sliderWidth = (e.touches[0].clientX/width*100) + "%"
       }else{
-        
-        this.sliderWidth = (e.offsetX/width*100) + "%"
+        if(this.slide){
+          this.sliderWidth = (e.offsetX/width*100) + "%"
+        }
       }
     },
     startSlide(){

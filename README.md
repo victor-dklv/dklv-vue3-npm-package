@@ -20,6 +20,12 @@ Add the plugin to your app:
 createApp(App).use(plugin)
 ```
 
+### To update
+
+```sh
+npm update --save @victor-dklv/vue3-npm
+```
+
 ## Components
 
 ### Links
