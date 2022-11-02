@@ -89,7 +89,8 @@ $date = Get-Date -Format "dd/MM/yyy HH:mm";
 git commit -m "Autocommit $date"; 
 git push; 
 #Get new patch version and publish to npm
-npm version patch; 
+npm version patch;
+git push;
 npm publish --acces=public
 ```
 
