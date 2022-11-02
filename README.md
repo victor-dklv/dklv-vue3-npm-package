@@ -69,14 +69,26 @@ To use the image slider add the dklv-image-slider to your component.
 
 ## Developing
 
+### Login as npm user
+
+```powershell
+# Check if user is logged in
+npm whomani
+# Login as authorized user
+npm login
+```
+
 ### Update code from terminal
 
 ```powershell
+# Build the updates
 npm run build; 
+# Commit the changes to git
 git add --all; 
 $date = Get-Date -Format "dd/MM/yyy HH:mm"; 
 git commit -m "Autocommit $date"; 
 git push; 
+#Get new patch version and publish to npm
 npm version patch; 
 npm publish --acces=public
 ```
