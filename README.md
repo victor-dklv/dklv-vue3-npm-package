@@ -70,6 +70,8 @@ To use the image slider add the dklv-image-slider to your component.
  <dklv-image-slider :image1="rightImg" :image2="leftImg" />
 ```
 
+<hr/>
+
 ### <a id="imagecarousel"></a>Image carousel
 
 To use the image carousel add the dklv-image-carousel to your component.
