@@ -86,12 +86,12 @@ npm run build;
 # Commit the changes to git
 git add --all; 
 $date = Get-Date -Format "dd/MM/yyy HH:mm"; 
-git commit -m "Autocommit $date"; 
-git push; 
+git commit -m "Autocommit $date";
 #Get new patch version and publish to npm
 npm version patch;
-git push;
 npm publish --acces=public
+#push all changes to github
+git push;
 ```
 
 ### Next features
