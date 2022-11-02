@@ -52,14 +52,14 @@ npm update --save @victor-dklv/vue3-npm
 
 To use the image slider add the dklv-image-slider to your component
 
-Variables:
-
-- image1
-  - Type: String
-  - Expected: Url
-- image2
-  - Type: String
-  - Expected: Url
+> Variables:
+>
+> - image1
+>   - Type: String
+>   - Expected: Url
+> - image2
+>   - Type: String
+>   - Expected: Url
 
 #### Example
 
