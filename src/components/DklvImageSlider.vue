@@ -71,7 +71,7 @@ export default {
 .sliderButton{
   width:50px;
   height:50px;
-  background:white;
+  background:rgb(0, 0, 0);
   position:absolute;
   top:50%;
   transform:translate(-50%,-50%);

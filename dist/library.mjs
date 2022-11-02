@@ -115,7 +115,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "\n.slider[data-v-3143918b]{\r\n  position: relative;\r\n  height: 500px;\r\n  overflow: hidden;\n}\n.sliderImage[data-v-3143918b]{\r\n  height: 100%;\r\n  width: 100%;\r\n  position: absolute;\r\n  object-fit: cover;\r\n  object-position: center;\n}\n.sliderButton[data-v-3143918b]{\r\n  width:50px;\r\n  height:50px;\r\n  background:white;\r\n  position:absolute;\r\n  top:50%;\r\n  transform:translate(-50%,-50%);\r\n  border-radius:50%;\r\n  user-select:none;\r\n  pointer-events: none;\n}\r\n";
+var css_248z = "\n.slider[data-v-3143918b]{\r\n  position: relative;\r\n  height: 500px;\r\n  overflow: hidden;\n}\n.sliderImage[data-v-3143918b]{\r\n  height: 100%;\r\n  width: 100%;\r\n  position: absolute;\r\n  object-fit: cover;\r\n  object-position: center;\n}\n.sliderButton[data-v-3143918b]{\r\n  width:50px;\r\n  height:50px;\r\n  background:rgb(0, 0, 0);\r\n  position:absolute;\r\n  top:50%;\r\n  transform:translate(-50%,-50%);\r\n  border-radius:50%;\r\n  user-select:none;\r\n  pointer-events: none;\n}\r\n";
 styleInject(css_248z);
 
 script.render = render;
