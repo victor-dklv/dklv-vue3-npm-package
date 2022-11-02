@@ -58,7 +58,7 @@ Variables:
 ### Update code from terminal
 
 ```sh
-npm run build; git add --all; git commit -m "Autocommit `date +'%Y-%m-%d %H:%M:%S'` "; git push; npm version patch; npm publish --acces=public
+npm run build; git add --all; $date = Get-Date; git commit -m "Autocommit $date"; git push; npm version patch; npm publish --acces=public
 ```
 
 ### Next features
