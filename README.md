@@ -45,6 +45,7 @@ npm update --save @victor-dklv/vue3-npm
 ### Links
 
 - [Image Slider](#imageslider)
+- [Image Carousel](#imagecarousel)
 
 <hr/>
 
@@ -57,14 +58,37 @@ To use the image slider add the dklv-image-slider to your component.
 > - image1
 >   - Type: String
 >   - Expected: Url
+>   - Required: True
 > - image2
 >   - Type: String
 >   - Expected: Url
+>   - Required: True
 
 #### Example
 
 ```html
  <dklv-image-slider :image1="rightImg" :image2="leftImg" />
+```
+
+### <a id="imagecarousel"></a>Image carousel
+
+To use the image carousel add the dklv-image-carousel to your component.
+
+#### Variables:
+
+> - images
+>   - Type: Array
+>   - Expected: Array of urls
+>   - Required: True
+> - height
+>   - Type: Number
+>   - Expected: Height in px
+>   - Required: False
+
+#### Example
+
+```html
+ <dklv-image-carousel :images="imgList" :height="carouselHeight" />
 ```
 
 ## Developing
