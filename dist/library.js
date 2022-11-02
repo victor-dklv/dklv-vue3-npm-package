@@ -8,17 +8,17 @@ var script$1 = {
   data(){
     return {
       slide: false,
-      sliderWidth: "50%"
+      sliderWidth: 50
     }
   },
   methods:{
     doSlideTouch(e){
       let width = document.getElementById("imageSliderContainer").offsetWidth;
       if(e.type !== "mousemove"){
-          this.sliderWidth = (e.touches[0].clientX/width*100) + "%";
+          this.sliderWidth = (e.touches[0].clientX/width*100);
       }else {
         if(this.slide){
-          this.sliderWidth = (e.offsetX/width*100) + "%";
+          this.sliderWidth = (e.offsetX/width*100);
         }
       }
     },
@@ -77,15 +77,23 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
     (vue.openBlock(), vue.createElementBlock("svg", _hoisted_3$1, [
       vue.createElementVNode("clipPath", _hoisted_4$1, [
         vue.createElementVNode("rect", {
-          width: $data.sliderWidth,
+          width: $data.sliderWidth + '%',
           height: "100%",
           id: "clippath"
         }, null, 8 /* PROPS */, _hoisted_5)
       ])
     ])),
     vue.createElementVNode("div", {
-      class: "sliderButton",
-      style: vue.normalizeStyle('left: ' + $data.sliderWidth)
+      class: "sliderButton ball",
+      style: vue.normalizeStyle('left: ' + $data.sliderWidth + '%')
+    }, null, 4 /* STYLE */),
+    vue.createElementVNode("div", {
+      class: "sliderButton left",
+      style: vue.normalizeStyle('left: ' + ($data.sliderWidth-1) + '%')
+    }, null, 4 /* STYLE */),
+    vue.createElementVNode("div", {
+      class: "sliderButton right",
+      style: vue.normalizeStyle('left: ' + ($data.sliderWidth+1) + '%')
     }, null, 4 /* STYLE */)
   ], 32 /* HYDRATE_EVENTS */))
 }
@@ -117,7 +125,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$1 = "\n.slider[data-v-3143918b]{\r\n  position: relative;\r\n  height: 500px;\r\n  overflow: hidden;\n}\n.sliderImage[data-v-3143918b]{\r\n  height: 100%;\r\n  width: 100%;\r\n  position: absolute;\r\n  object-fit: cover;\r\n  object-position: center;\n}\n.sliderButton[data-v-3143918b]{\r\n  width:50px;\r\n  height:50px;\r\n  background:rgb(0, 0, 0);\r\n  position:absolute;\r\n  top:50%;\r\n  transform:translate(-50%,-50%);\r\n  border-radius:50%;\r\n  user-select:none;\r\n  pointer-events: none;\n}\r\n";
+var css_248z$1 = "\n.slider[data-v-3143918b]{\r\n  position: relative;\r\n  height: 500px;\r\n  overflow: hidden;\n}\n.sliderImage[data-v-3143918b]{\r\n  height: 100%;\r\n  width: 100%;\r\n  position: absolute;\r\n  object-fit: cover;\r\n  object-position: center;\n}\n.sliderButton[data-v-3143918b]{\r\n  position:absolute;\r\n  user-select:none;\r\n  pointer-events: none;\r\n  top:50%;\n}\n.sliderButton.ball[data-v-3143918b]{\r\n  width:50px;\r\n  height:50px;\r\n  background:rgba(255, 255, 255, 0.5);\r\n  border-radius:50%;\r\n  transform: translate(-50%,-50%);\n}\n.sliderButton.left[data-v-3143918b]{\r\n  transform:  rotate(45deg) translate(-50%,-50%);\r\n  width:5px;\r\n  height:5px;\r\n  border-left: 3px solid rgba(0, 0, 0, 0.8);\r\n  border-bottom: 3px solid rgba(0, 0, 0, 0.8);\r\n    transform-origin: 0 0;\r\n    line-height: 5px;\n}\n.sliderButton.right[data-v-3143918b]{\r\n  transform: rotate(225deg) translate(-50%,-50%);\r\n  width:5px;\r\n  height:5px;\r\n  border-bottom: 3px solid rgba(0, 0, 0, 0.8);\r\n  border-left: 3px solid rgba(0, 0, 0, 0.8);\r\n    transform-origin: 0 0;\r\n    line-height: 5px;\n}\r\n";
 styleInject(css_248z$1);
 
 script$1.render = render$1;

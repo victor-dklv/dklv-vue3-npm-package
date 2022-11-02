@@ -4,10 +4,12 @@
       <img style="clip-path: url(#myClip)" :src="afterImage" class="sliderImage" draggable="false">
       <svg width="100%" height="100%">
         <clipPath id="myClip">
-          <rect :width="sliderWidth" height="100%" id="clippath"/>
+          <rect :width="sliderWidth + '%'" height="100%" id="clippath"/>
         </clipPath>
       </svg>
-      <div class="sliderButton" :style="'left: ' + sliderWidth"></div>
+      <div class="sliderButton ball" :style="'left: ' + sliderWidth + '%'"></div>
+      <div class="sliderButton left" :style="'left: ' + (sliderWidth-1) + '%'"></div>
+      <div class="sliderButton right" :style="'left: ' + (sliderWidth+1) + '%'"></div>
     </div>
 </template>
 <script>
@@ -17,17 +19,17 @@ export default {
   data(){
     return {
       slide: false,
-      sliderWidth: "50%"
+      sliderWidth: 50
     }
   },
   methods:{
     doSlideTouch(e){
       let width = document.getElementById("imageSliderContainer").offsetWidth;
       if(e.type !== "mousemove"){
-          this.sliderWidth = (e.touches[0].clientX/width*100) + "%"
+          this.sliderWidth = (e.touches[0].clientX/width*100)
       }else{
         if(this.slide){
-          this.sliderWidth = (e.offsetX/width*100) + "%"
+          this.sliderWidth = (e.offsetX/width*100)
         }
       }
     },
@@ -69,14 +71,36 @@ export default {
   object-position: center;
 }
 .sliderButton{
-  width:50px;
-  height:50px;
-  background:rgb(0, 0, 0);
   position:absolute;
-  top:50%;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
   user-select:none;
   pointer-events: none;
+  top:50%;
+}
+.sliderButton.ball{
+  width:50px;
+  height:50px;
+  background:rgba(255, 255, 255, 0.5);
+  border-radius:50%;
+  transform: translate(-50%,-50%);
+}
+.sliderButton.left{
+  transform:  rotate(45deg) translate(-50%,-50%);
+  width:5px;
+  height:5px;
+  border-left: 3px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.8);
+    transform-origin: 0 0;
+    line-height: 5px;
+
+}
+.sliderButton.right{
+  transform: rotate(225deg) translate(-50%,-50%);
+  width:5px;
+  height:5px;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.8);
+  border-left: 3px solid rgba(0, 0, 0, 0.8);
+    transform-origin: 0 0;
+    line-height: 5px;
+
 }
 </style>
