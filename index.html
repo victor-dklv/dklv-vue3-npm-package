@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your App</title>
+        <style>
+            body{
+                background-color: rgb(68, 70, 167);
+            }
+            .vuedivcontainer{
+                margin: 40px;
+                box-shadow: 0 0 5px 0 rgb(0, 0, 0);
+                padding: 40px;
+                border-radius: 5px;
+                background: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script type="module">
+            import elems from "./src/components.js";
+            for (const el in elems){
+                let div = document.createElement('div');
+                div.setAttribute("id", el);
+                div.setAttribute("class", "vuedivcontainer")
+                const cur = document.getElementById("container");
+                document.body.insertBefore(div, cur);
+            }
+        </script>
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>
