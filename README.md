@@ -52,3 +52,15 @@ Variables:
 ```html
  <dklv-image-slider :image1="rightImg" :image2="leftImg" />
 ```
+
+## Developing
+
+### Update code from terminal
+
+```sh
+npm run build; git add --all; git commit -m "Autocommit %date:~-4%%date:~3,2%%date:~0,2%.%time:~0,2%%time:~3,2%%time:~6,2%"; git push; npm version patch; npm publish --acces=public
+```
+
+### Next features
+
+- 
