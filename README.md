@@ -50,7 +50,7 @@ npm update --save @victor-dklv/vue3-npm
 
 ### <a id="imageslider"></a>Image slider
 
-To use the image slider add the dklv-image-slider to your component
+To use the image slider add the dklv-image-slider to your component.
 
 #### Variables:
 

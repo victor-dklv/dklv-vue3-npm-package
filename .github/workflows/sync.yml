@@ -1,8 +1,0 @@
-name: Publish Package to npmjs
-on: [push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: npm version patch
-      - run: npm publish --access=public
