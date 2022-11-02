@@ -1,6 +1,6 @@
 {
   "name": "@victor-dklv/vue3-npm",
-  "version": "0.1.39",
+  "version": "0.1.40",
   "description": "",
   "main": "dist/library.js",
   "module": "dist/library.mjs",
