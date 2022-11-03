@@ -22,12 +22,23 @@
         <div id="container"></div>
         <script type="module">
             import elems from "./src/components.js";
+            const cur = document.getElementById("container");
+
             for (const el in elems){
+                let parent = document.createElement('div');
+                let title = document.createElement('h2');
+                let space = document.createElement('br');
                 let div = document.createElement('div');
+
+                parent.setAttribute("class", "vuedivcontainer");
+                title.innerHTML = el;
                 div.setAttribute("id", el);
-                div.setAttribute("class", "vuedivcontainer")
-                const cur = document.getElementById("container");
-                document.body.insertBefore(div, cur);
+                
+                parent.appendChild(title);
+                parent.appendChild(space);
+                parent.appendChild(div);
+                
+                document.body.insertBefore(parent, cur);
             }
         </script>
         <script type="module" src="/src/main.js"></script>

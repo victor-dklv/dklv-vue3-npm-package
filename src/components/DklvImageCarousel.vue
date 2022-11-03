@@ -16,28 +16,33 @@ export default {
     name: "DklvImageCarousel",
     props:[
         'images',
-        'height'
+        'height',
+        'autoscroll',
     ],
     data(){
         return{
             curIndex: 0,
             loaded:false,
-            loadedImages: [],
-            loadedHeight: 0,
-            created: false,
-        }
-    },
-    created(){
-        if(!this.images){
-            this.loadedImages = [
+            loadedImages: [
                 "https://www.w3schools.com/howto/img_nature_wide.jpg",
                 "https://www.w3schools.com/howto/img_snow_wide.jpg",
                 "https://www.w3schools.com/howto/img_lights_wide.jpg",
                 "http://images.ctfassets.net/skkgb8fetgpj/26f0kFTj6XTDMK8x6hwb2M/cca6c1a0aee94bcbf4afeae04e5d489d/pexels-a__kos-szabo__-440731.jpg"
-            ];
+            ],
+            loadedHeight: 0,
+            created: false,
+            loadedAutoscroll: true,
         }
-        if(!this.height){
-            this.loadedHeight = 0
+    },
+    created(){
+        if(this.images){
+            this.loadedImages = this.images;
+        }
+        if(this.height){
+            this.loadedHeight = this.height
+        }
+        if(this.autoscroll){
+            this.loadedAutoscroll = this.autoscroll
         }
         this.created = true;
     },
@@ -57,20 +62,24 @@ export default {
                     return "height: " + this.loadedHeight + "px;";
                 }
             }
-
-            
         }
     },
     mounted(){
         if(this.created){
             this.loaded = true;
         }
+        if(this.loadedAutoscroll){
+            setInterval(() => {
+                this.curIndex++;
+            }, 5000);
+        }
     },
     methods:{
         position(val){
             if(this.curIndex < 0){
                 this.curIndex = this.loadedImages.length-1;
-            }else if(this.curIndex >= this.loadedImages.length){
+            }else 
+            if(this.curIndex >= this.loadedImages.length){
                 this.curIndex = 0;
             }
             return "left: " + (val -this.curIndex) *100 + "%";

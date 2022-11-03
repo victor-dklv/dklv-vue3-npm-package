@@ -86,6 +86,10 @@ To use the image carousel add the dklv-image-carousel to your component.
 >   - Type: Number
 >   - Expected: Height in px
 >   - Required: False
+> - autoscroll
+>   - Type: Boolean
+>   - Expected: True or False
+>   - Required: False
 
 #### Example
 
