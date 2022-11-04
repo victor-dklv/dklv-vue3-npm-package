@@ -52,7 +52,7 @@ export default {
         },
         carouselHeight(){
             if(this.loaded){
-                if(!this.height || this.height == 0){
+                if(!this.height || this.loadedHeight == 0){
                     var car = document.getElementsByClassName('images');
                     for (let i = 0; i < car.length; i++) {
                         const el = car[i];
@@ -61,9 +61,9 @@ export default {
                         }
                     }
                     return "height: " + this.loadedHeight + "px;";
-                }else{
-                    return "height: " + this.loadedHeight + "px;";
                 }
+                return "height: " + this.loadedHeight + "px;";
+                
             }
         }
     },
