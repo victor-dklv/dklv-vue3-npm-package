@@ -23,9 +23,6 @@ export default {
         return{
             curIndex: 0,
             loaded:false,
-            loadedHeight: 0,
-            created: false,
-            loadedAutoscroll: true,
             scrollInterval: true,
         }
     },
