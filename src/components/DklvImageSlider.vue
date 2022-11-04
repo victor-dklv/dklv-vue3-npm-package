@@ -8,6 +8,8 @@
         </clipPath>
       </svg>
       <div class="sliderButton ball" :style="'left: ' + sliderWidth + '%'"></div>
+      <div class="sliderButton bar top" :style="'left: ' + sliderWidth + '%'"></div>
+      <div class="sliderButton bar bottom" :style="'left: ' + sliderWidth + '%'"></div>
       <div class="sliderButton left" :style="'left: ' + (sliderWidth-1) + '%'"></div>
       <div class="sliderButton right" :style="'left: ' + (sliderWidth+1) + '%'"></div>
     </div>
@@ -69,6 +71,7 @@ export default {
   position: absolute;
   object-fit: cover;
   object-position: center;
+  cursor: pointer;
 }
 .sliderButton{
   position:absolute;
@@ -76,19 +79,34 @@ export default {
   pointer-events: none;
   top:50%;
 }
+.sliderButton.bar{
+  height: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 1)
+}
+.sliderButton.bar.top{
+  top:-25px;
+  
+}
+.sliderButton.bar.bottom{
+  top:initial;
+  bottom:-25px;
+}
 .sliderButton.ball{
   width:50px;
   height:50px;
-  background:rgba(255, 255, 255, 0.5);
+  background:rgba(255, 255, 255, 0);
   border-radius:50%;
   transform: translate(-50%,-50%);
+  border: 3px solid white;
 }
 .sliderButton.left{
   transform:  rotate(45deg) translate(-50%,-50%);
   width:5px;
   height:5px;
-  border-left: 3px solid rgba(0, 0, 0, 0.8);
-  border-bottom: 3px solid rgba(0, 0, 0, 0.8);
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
     transform-origin: 0 0;
     line-height: 5px;
 
@@ -97,8 +115,8 @@ export default {
   transform: rotate(225deg) translate(-50%,-50%);
   width:5px;
   height:5px;
-  border-bottom: 3px solid rgba(0, 0, 0, 0.8);
-  border-left: 3px solid rgba(0, 0, 0, 0.8);
+  border-bottom: 3px solid white;
+  border-left: 3px solid white;
     transform-origin: 0 0;
     line-height: 5px;
 
