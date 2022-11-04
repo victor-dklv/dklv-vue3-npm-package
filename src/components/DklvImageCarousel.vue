@@ -36,15 +36,6 @@ export default {
         }
     },
     created(){
-        if(this.images){
-            this.loadedImages = this.images;
-        }
-        if(this.height){
-            this.loadedHeight = this.height
-        }
-        if(this.autoscroll){
-            this.loadedAutoscroll = this.autoscroll
-        }
         this.created = true;
     },
     computed:{
@@ -66,6 +57,16 @@ export default {
         }
     },
     mounted(){
+        
+        if(this.images){
+            this.loadedImages = this.images;
+        }
+        if(this.height){
+            this.loadedHeight = this.height
+        }
+        if(this.autoscroll){
+            this.loadedAutoscroll = this.autoscroll
+        }
         if(this.created){
             this.loaded = true;
         }
