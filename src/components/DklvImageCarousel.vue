@@ -15,7 +15,7 @@
 export default {
     name: "DklvImageCarousel",
     props:[
-        'images',
+        'imagelist',
         'height',
         'autoscroll',
     ],
@@ -28,7 +28,7 @@ export default {
     },
     computed:{
         loadedImages(){
-            if(!this.images){
+            if(!this.imagelist){
                 return [
                 "https://www.w3schools.com/howto/img_nature_wide.jpg",
                 "https://www.w3schools.com/howto/img_snow_wide.jpg",
@@ -36,7 +36,7 @@ export default {
                 "http://images.ctfassets.net/skkgb8fetgpj/26f0kFTj6XTDMK8x6hwb2M/cca6c1a0aee94bcbf4afeae04e5d489d/pexels-a__kos-szabo__-440731.jpg"
                 ];
             }
-            return this.images
+            return this.imagelist
         },
         loadedHeight(){
             if(!this.height){
