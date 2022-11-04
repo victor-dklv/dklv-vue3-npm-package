@@ -29,18 +29,9 @@ export default {
             scrollInterval: true,
         }
     },
-    created(){
-        if(this.height){
-            this.loadedHeight = this.height
-        }
-        if(this.autoscroll){
-            this.loadedAutoscroll = this.autoscroll
-        }
-        this.created = true;
-    },
     computed:{
         loadedImages(){
-            if(!this.image1){
+            if(!this.images){
                 return [
                 "https://www.w3schools.com/howto/img_nature_wide.jpg",
                 "https://www.w3schools.com/howto/img_snow_wide.jpg",
@@ -48,7 +39,19 @@ export default {
                 "http://images.ctfassets.net/skkgb8fetgpj/26f0kFTj6XTDMK8x6hwb2M/cca6c1a0aee94bcbf4afeae04e5d489d/pexels-a__kos-szabo__-440731.jpg"
                 ];
             }
-            return this.image1
+            return this.images
+        },
+        loadedHeight(){
+            if(!this.height){
+                return 0;
+            }
+            return this.height;
+        },
+        loadedAutoscroll(){
+            if(!this.autoscroll){
+                return true;
+            }
+            return this.autoscroll;
         },
         carouselHeight(){
             if(this.loaded){
@@ -68,9 +71,6 @@ export default {
         }
     },
     mounted(){
-        if(this.created){
-            this.loaded = true;
-        }
         if(this.loadedAutoscroll){
             setInterval(() => {
                 if(this.scrollInterval){
@@ -78,6 +78,7 @@ export default {
                 }
             }, 5000);
         }
+        this.loaded = true;
     },
     methods:{
         position(val){
