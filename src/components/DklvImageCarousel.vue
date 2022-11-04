@@ -24,6 +24,7 @@ export default {
             curIndex: 0,
             loaded:false,
             scrollInterval: true,
+            loadedHeight: 0,
         }
     },
     computed:{
@@ -38,12 +39,6 @@ export default {
             }
             return this.imagelist
         },
-        loadedHeight(){
-            if(!this.height){
-                return 0;
-            }
-            return this.height;
-        },
         loadedAutoscroll(){
             if(!this.autoscroll){
                 return true;
@@ -54,6 +49,7 @@ export default {
             if(this.loaded){
                 if(this.loadedHeight == 0){
                     var car = document.getElementsByClassName('images');
+                    
                     for (let i = 0; i < car.length; i++) {
                         const el = car[i];
                         if(el.naturalHeight < this.loadedHeight || this.loadedHeight == 0){
@@ -74,6 +70,9 @@ export default {
                     this.curIndex++;
                 }
             }, 5000);
+        }
+        if(this.height){
+            this.loadedHeight = this.height;
         }
         this.loaded = true;
     },
