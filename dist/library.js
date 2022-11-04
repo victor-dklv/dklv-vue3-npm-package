@@ -152,6 +152,7 @@ var script = {
             loadedHeight: 0,
             created: false,
             loadedAutoscroll: true,
+            scrollInterval: true,
         }
     },
     created(){
@@ -190,7 +191,9 @@ var script = {
         }
         if(this.loadedAutoscroll){
             setInterval(() => {
-                this.curIndex++;
+                if(this.scrollInterval){
+                    this.curIndex++;
+                }
             }, 5000);
         }
     },
@@ -229,12 +232,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _hoisted_2,
     vue.createElementVNode("div", {
       class: "btnBg btnRightBg",
-      onClick: _cache[0] || (_cache[0] = $event => ($data.curIndex++))
+      onClick: _cache[0] || (_cache[0] = $event => {$data.curIndex++; $data.scrollInterval=false;})
     }),
     _hoisted_3,
     vue.createElementVNode("div", {
       class: "btnBg btnLeftBg",
-      onClick: _cache[1] || (_cache[1] = $event => ($data.curIndex--))
+      onClick: _cache[1] || (_cache[1] = $event => {$data.curIndex--;$data.scrollInterval=false;})
     }),
     vue.createElementVNode("div", _hoisted_4, [
       (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($data.loadedImages, (image, index) => {

@@ -2,9 +2,9 @@
     <div class="carousel" :style="carouselHeight">
         <img class="images" v-for="(image, index) in loadedImages" :key="image" :src="image" :style="position(index)"/>
         <button class="btn nextButton" ></button>
-        <div class="btnBg btnRightBg" @click="curIndex++"></div>
+        <div class="btnBg btnRightBg" @click="curIndex++; scrollInterval=false"></div>
         <button class="btn prevButton" ></button>
-        <div class="btnBg btnLeftBg" @click="curIndex--"></div>
+        <div class="btnBg btnLeftBg" @click="curIndex--;scrollInterval=false"></div>
         <div class="bullets">
             <div v-for="(image, index) in loadedImages" :key="index" class="bullet" :class="index == curIndex?'activeBullet':''"></div>
         </div>
@@ -32,6 +32,7 @@ export default {
             loadedHeight: 0,
             created: false,
             loadedAutoscroll: true,
+            scrollInterval: true,
         }
     },
     created(){
@@ -70,7 +71,9 @@ export default {
         }
         if(this.loadedAutoscroll){
             setInterval(() => {
-                this.curIndex++;
+                if(this.scrollInterval){
+                    this.curIndex++;
+                }
             }, 5000);
         }
     },
