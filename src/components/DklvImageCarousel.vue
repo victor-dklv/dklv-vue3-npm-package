@@ -40,10 +40,10 @@ export default {
             return this.imagelist
         },
         loadedAutoscroll(){
-            if(!this.autoscroll){
-                return true;
+            if(this.autoscroll){
+                return this.autoscroll;
             }
-            return this.autoscroll;
+            return true;
         },
         carouselHeight(){
             if(this.loaded){
