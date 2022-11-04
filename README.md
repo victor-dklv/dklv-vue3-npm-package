@@ -99,6 +99,16 @@ To use the image carousel add the dklv-image-carousel to your component.
 
 ## Developing
 
+### For development enviroment
+
+```powershell
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+```
+
 ### Login as npm user
 
 ```powershell
