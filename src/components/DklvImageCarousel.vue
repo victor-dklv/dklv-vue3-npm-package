@@ -23,12 +23,6 @@ export default {
         return{
             curIndex: 0,
             loaded:false,
-            loadedImages: [
-                "https://www.w3schools.com/howto/img_nature_wide.jpg",
-                "https://www.w3schools.com/howto/img_snow_wide.jpg",
-                "https://www.w3schools.com/howto/img_lights_wide.jpg",
-                "http://images.ctfassets.net/skkgb8fetgpj/26f0kFTj6XTDMK8x6hwb2M/cca6c1a0aee94bcbf4afeae04e5d489d/pexels-a__kos-szabo__-440731.jpg"
-            ],
             loadedHeight: 0,
             created: false,
             loadedAutoscroll: true,
@@ -36,9 +30,26 @@ export default {
         }
     },
     created(){
+        if(this.height){
+            this.loadedHeight = this.height
+        }
+        if(this.autoscroll){
+            this.loadedAutoscroll = this.autoscroll
+        }
         this.created = true;
     },
     computed:{
+        loadedImages(){
+            if(!this.image1){
+                return [
+                "https://www.w3schools.com/howto/img_nature_wide.jpg",
+                "https://www.w3schools.com/howto/img_snow_wide.jpg",
+                "https://www.w3schools.com/howto/img_lights_wide.jpg",
+                "http://images.ctfassets.net/skkgb8fetgpj/26f0kFTj6XTDMK8x6hwb2M/cca6c1a0aee94bcbf4afeae04e5d489d/pexels-a__kos-szabo__-440731.jpg"
+                ];
+            }
+            return this.image1
+        },
         carouselHeight(){
             if(this.loaded){
                 if(!this.height || this.height == 0){
@@ -57,16 +68,6 @@ export default {
         }
     },
     mounted(){
-        
-        if(this.images){
-            this.loadedImages = this.images;
-        }
-        if(this.height){
-            this.loadedHeight = this.height
-        }
-        if(this.autoscroll){
-            this.loadedAutoscroll = this.autoscroll
-        }
         if(this.created){
             this.loaded = true;
         }
