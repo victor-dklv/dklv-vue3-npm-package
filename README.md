@@ -99,6 +99,12 @@ To use the image carousel add the dklv-image-carousel to your component.
  <dklv-image-carousel :imagelist="imgList" :height="carouselHeight" />
 ```
 
+#### To do
+
+- [ ] Add Autoscroll functionalities
+
+<hr>
+
 ## Developing
 
 ### For development enviroment
@@ -142,6 +148,6 @@ git push;
 
 ### Next features
 
-| Feature                                         | Status |
-| ----------------------------------------------- | ------ |
-| Cards with title subtitle text image and button | Open   |
+| Feature                                            | Status |
+| -------------------------------------------------- | ------ |
+| Cards with title, subtitle, text, image and button | Open   |
