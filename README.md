@@ -25,13 +25,15 @@ createApp(App).use(plugin)
 After installation go to your vue component and add the package:
 
 ```js
-import plugin from '@victor-dklv/vue3-npm'
+import /*component name*/ from '@victor-dklv/vue3-npm'
 
 export default {
     components:{
-        plugin
+        /*component name*/
     }
 }
+
+//Components are listed below
 ```
 
 ### To update
@@ -86,15 +88,15 @@ To use the image carousel add the dklv-image-carousel to your component.
 >   - Type: Number
 >   - Expected: Height in px
 >   - Required: False
-> - autoscroll
->   - Type: Boolean
->   - Expected: true or false
->   - Required: False
+> - ~~autoscroll~~
+>   - ~~Type: Boolean~~
+>   - ~~Expected: true or false~~
+>   - ~~Required: False~~
 
 #### Example
 
 ```html
- <dklv-image-carousel :imagelist="imgList" :height="carouselHeight" :autoscroll="false"/>
+ <dklv-image-carousel :imagelist="imgList" :height="carouselHeight" />
 ```
 
 ## Developing
@@ -113,7 +115,8 @@ npm run dev
 
 ```powershell
 # Check if user is logged in
-npm whomani
+npm whoami
+
 # Login as authorized user
 npm login
 ```
@@ -123,17 +126,22 @@ npm login
 ```powershell
 # Build the updates
 npm run build; 
+
 # Commit the changes to git
 git add --all; 
 $date = Get-Date -Format "dd/MM/yyy HH:mm"; 
 git commit -m "Autocommit $date";
+
 #Get new patch version and publish to npm
 npm version patch;
 npm publish --acces=public
-#push all changes to github
+
+#push all changes to git
 git push;
 ```
 
 ### Next features
 
-- 
+| Feature                                         | Status |
+| ----------------------------------------------- | ------ |
+| Cards with title subtitle text image and button | Open   |
